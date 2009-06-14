@@ -1,0 +1,17 @@
+A GUI for a SuperCollider Membrane Physical Model by Alex McLean. Membrane source available from http://yaxu.org/software/
+
+Installation:
+-If you don't have the sc3-plugins installed already, download and install  Alex McLeans MembraneUGens from http://sourceforge.net/projects/sc3-plugins/
+-Alternatively download and compile the source from http://yaxu.org/software/
+
+Running:
+-Open Boom.scd
+-Load the SynthDef
+-Run the GUI and Synth Code
+
+Operation:
+-Mouse clicks trigger a hit
+-There are 3 preset drum sounds (Kick, Snare, Timpani) and a user definable  setting.
+-Faders are faintly visible in the circle, clicking on any of these will select that preset and set the loss and tension values to values that approximate the tension/loss of the area hit.
+-The user definable fader can be set with the controls in the lower left side of the GUI.
+-Reverb can be applied with the controls on the lower right hand side. 

@@ -1,5 +1,4 @@
-Computational Music 1
-Task 1 - GUI based/interactive synth "Boom"
+//Boom!
 
 //Synth Def
 (
