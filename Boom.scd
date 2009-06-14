@@ -14,7 +14,7 @@ tension = te;
 loss = lo;
 
 snare= {arg dec; EnvGen.kr(Env.linen(0.001, 0.2, dec,0.33,-3), //HP Filtered white noise for metal snares on snaredrum preset
-	                         MouseButton.kr(0, 1), 
+	                         MouseButton.kr(-1, 1), 
                              timeScale: ts, doneAction: 0
                             ) * HPF.ar(WhiteNoise.ar(sn*0.05), 2000)};
                                                      
