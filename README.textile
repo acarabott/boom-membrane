@@ -1,0 +1,32 @@
+h1. "Boom-Membrane":http://github.com/acarabott/boom-membrane/tree/master
+
+!http://picasaweb.google.co.uk/lh/photo/UYmcyinUoTuzgv_vK-yFkA?authkey=Gv1sRgCJakpNDx5ZCbsAE&feat=directlink(Boom!)!
+
+
+A "SuperCollider":http://supercollider.sourceforge.net GUI for a drum head (membrane) physical model by Alex McLean.
+
+h2. Requirements
+
+"SuperCollider":http://sourceforge.net/projects/supercollider
+
+MembraneUGens, available as part of the "sce-plugins":http://sourceforge.net/projects/sc3-plugins/ or source code from "Alex's Homepage":http://yaxu.org/software/
+
+h3. Operation
+
+Open Boom.scd
+
+Load the SynthDef
+
+Run the GUI and Synth Code
+
+Mouse clicks trigger a hit
+
+'B' key toggles sound on/off
+
+There are 3 preset drum sounds (Kick, Snare, Timpani) and a user definable  setting.
+
+Faders are faintly visible in the circle, clicking on any of these will select that preset and set the loss and tension values to values that approximate the tension/loss of the area hit.
+
+The user definable fader can be set with the controls in the lower left side of the GUI.
+
+Reverb can be applied with the controls on the lower right hand side.

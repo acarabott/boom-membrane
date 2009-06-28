@@ -2,9 +2,9 @@
 
 //Synth Def
 (
-SynthDef(\boom,{arg amp=1, te=0.02, lo=0.9998, ts=0.1, aT=0.01, sn=0, filtFreq=30, mix=0.0, room=0.25, damp=0.5;
+SynthDef(\boom,{arg out=0, amp=1, te=0.02, lo=0.9998, ts=0.1, aT=0.01, sn=0, filtFreq=30, mix=0.0, room=0.25, damp=0.5, vol=1;
 
-var excitation, tension, loss, snare;
+var excitation, tension, loss, snare, toggle;
 
 excitation = EnvGen.kr(Env.perc(aT), 
 	                         MouseButton.kr(-1, 1), 
@@ -17,12 +17,14 @@ snare= {arg dec; EnvGen.kr(Env.linen(0.001, 0.2, dec,0.33,-3), //HP Filtered whi
 	                         MouseButton.kr(-1, 1), 
                              timeScale: ts, doneAction: 0
                             ) * HPF.ar(WhiteNoise.ar(sn*0.05), 2000)};
-                                                     
+
+toggle = ToggleFF.kr(Trig1.kr(KeyState.kr(11,1,0,0), 0.0001));
+        
                             
-Out.ar(0, FreeVerb.ar(
+Out.ar(out, toggle*FreeVerb.ar(
 							Mix.new([	(Pan2.ar(HPF.ar(MembraneCircle.ar(excitation, tension, loss), filtFreq), 0.0))*amp, //use MembraneHexagon if too CPU intensive
-										snare.value(1.5),
-										snare.value(1.5*0.66)
+										snare.value(1.5)*amp,
+										snare.value(1.5*0.66)*amp
 										]),
 							mix,
 							room,
@@ -32,16 +34,16 @@ Out.ar(0, FreeVerb.ar(
 }).send(s)
 )
 
+a= Synth(\boom, [\out, 0]);     			//Synth
 
-//GUI & Synth
+
+//GUI 
 (
 
 var window, isOn, rim, skin,
 	ds, dtCS, dlCS, csfunc, ut, utb, ul, ulb, utMin, utMax, ulMin, ulMax, utFunc, ulFunc, 
 	snare, kick, timp, user,
 	reverbTitle, mixText, roomText, dampText, mixSlid, roomSlid, dampSlid, dryVal, wetVal, roomVal, dampVal, reverbCS;
-
-a= Synth(\boom);     			//Synth
 
 ds = Array.newClear(4);		//Drum sliders
 dtCS= Array.newClear(4);		//Drum tension control spec
